@@ -18,6 +18,7 @@ def main():
                 ccf_annotations = sample['rui_location']['ccf_annotations']
                 all_ccf_annotations.append(ccf_annotations)
     print(all_ccf_annotations)
+    print()
 
 # next, we create a dict to count unique ccf_annotations
 # then, we flatten the 2D array we created above into a 1D array
@@ -32,6 +33,8 @@ def main():
             counters[item] = 0
         if item in counters:
             counters[item] = counters[item] + 1
+    print(flattened)
+    print()
     print(counters)
 
 main()
