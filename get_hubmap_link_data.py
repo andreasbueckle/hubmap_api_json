@@ -31,7 +31,6 @@ dimensions = [
     }
 ]
 
-
 """
 This function takes in the data we retrieve from the API endpoint, filters out values for x, y, z-dimensions, and fills them in the dimensions list
 """
@@ -67,7 +66,6 @@ def compute_average(dim, dim_name):
         counter = counter + 1
     print('average size for ' + dim_name + " in " +
           str(dim['name']) + ': ' + str(total/counter))
-
 
 """
 Retrieves the JSON data from the API endpoint and prints relevant output to the console
