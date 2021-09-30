@@ -1,9 +1,3 @@
-thisdict = {
-
-    "colors": ["red", "white", "blue"],
-    "colors": ["red", "white", "yellow"]
-}
-
 for_vu = [
 
    [
