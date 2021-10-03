@@ -1,8 +1,6 @@
-from typing import Counter
 import urllib.request
 import json
 from datetime import datetime
-import sys
 
 def test_time():
     date_time_str1 = '18/09/19 01:55:19'
