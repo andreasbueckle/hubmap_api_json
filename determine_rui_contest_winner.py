@@ -1,3 +1,4 @@
+from datetime import date
 import urllib.request
 import json
 from dateutil import parser
@@ -37,11 +38,21 @@ def main():
         print(counts)
         # OUTPUT: {'TMC-UCSD': 36, 'General Electric RTI': 11, 'TMC-Florida': 158}
 
-        #finally, let's count all the submissions in the contest
+        #now, let's count all the submissions in the contest
         total_submissions = 0
         for item in counts:
             total_submissions += counts[item]
         print("Total #submissions: " + str(total_submissions)) #208
 
+        #finally, let find out on which dates blocks were submitted
+        date_counts = {}
+        for item in dates:
+            as_string = str(item)[0:10]
+            if as_string not in date_counts:
+                date_counts[as_string] = 1
+            else:
+               date_counts[as_string] += 1
+        print(date_counts)
+        # OUTPOT :{'2021-09-27': 7, '2021-09-28': 8, '2021-09-23': 7, '2021-09-10': 25, '2021-10-02': 110, '2021-10-01': 36, '2021-10-03': 15}
        
 main()
