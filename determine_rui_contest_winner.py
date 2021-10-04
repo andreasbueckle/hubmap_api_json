@@ -40,9 +40,8 @@ def main():
         #finally, let's count all the submissions in the contest
         total_submissions = 0
         for item in counts:
-            print(counts[item])
             total_submissions += counts[item]
-        print("Total #submissions: " + str(total_submissions))
+        print("Total #submissions: " + str(total_submissions)) #208
 
        
 main()
