@@ -4,6 +4,7 @@ import json
 from dateutil import parser
 import sys
 
+
 def main():
 
     # To get TOKEN for viewing unpublished data, go to EUI, log in, then view source, then copy token from browser
@@ -18,6 +19,7 @@ def main():
         data = json.loads(url.read().decode())
         dates = []
         creators = []
+        organs = []
         for item in data['@graph']:
             for sample in item['samples']:
           
@@ -27,6 +29,7 @@ def main():
                     creator = sample['label'].split(',')[2].strip()
                     dates.append(as_date_time)
                     creators.append(creator)
+                    organs.append(sample['rui_location']['placement']['target'])
         
         #count submission per team
         counts = {}
@@ -44,7 +47,7 @@ def main():
             total_submissions += counts[item]
         print("Total #submissions: " + str(total_submissions)) #208
 
-        #finally, let's find out on which dates blocks were submitted
+        #Find out on which dates blocks were submitted
         date_counts = {}
         for item in dates:
             as_string = str(item)[0:10]
@@ -54,5 +57,29 @@ def main():
                date_counts[as_string] += 1
         print(date_counts)
         # OUTPOT :{'2021-09-27': 7, '2021-09-28': 8, '2021-09-23': 7, '2021-09-10': 25, '2021-10-02': 110, '2021-10-01': 36, '2021-10-03': 15}
-       
+    
+    # find out submissions by organ
+    organ_counts = {}
+    for item in organs:
+                if item not in organ_counts:
+                    organ_counts[item] = 1
+                else:
+                    organ_counts[item] += 1
+    # print(organ_counts)
+        # {'http://purl.org/ccf/latest/ccf.owl#VHMLung': 14, 'http://purl.org/ccf/latest/ccf.owl#VHFLung': 8, 'http://purl.org/ccf/latest/ccf.owl#VHMSkin': 7, 'http://purl.org/ccf/latest/ccf.owl#VHFSkin': 5, 'http://purl.org/ccf/latest/ccf.owl#VHFThymus': 11, 'http://purl.org/ccf/latest/ccf.owl#VHFSpleen': 8, 'http://purl.org/ccf/latest/ccf.owl#VHFRightLymphNode': 13,
+    #     'http://purl.org/ccf/latest/ccf.owl#VHMRightLymphNode': 49, 'http://purl.org/ccf/latest/ccf.owl#VHMSpleen': 40, 'http://purl.org/ccf/latest/ccf.owl#VHMThymus': 38, 'http://purl.org/ccf/latest/ccf.owl#VHMLeftKidney': 4, 'http://purl.org/ccf/latest/ccf.owl#VHFLeftKidney': 5, 'http://purl.org/ccf/latest/ccf.owl#VHFRightKidney': 4, 'http://purl.org/ccf/latest/ccf.owl#VHMRightKidney': 2}
+
+    #determine unique organ/creator combos (for trophies)
+    organ_by_creator = []
+    for i in range(0, len(organs)):
+        organ_by_creator.append((organs[i], creators[i]))
+    # print(organ_by_creator)
+
+    unique = []
+    for combo in organ_by_creator:
+        if combo not in unique:
+            unique.append(combo)
+    print(unique)
+    # [('http://purl.org/ccf/latest/ccf.owl#VHMLung', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHFLung', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHMSkin', 'General Electric RTI'), ('http://purl.org/ccf/latest/ccf.owl#VHFSkin', 'General Electric RTI'), ('http://purl.org/ccf/latest/ccf.owl#VHFThymus', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHFSpleen', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHFRightLymphNode', 'TMC-Florida'),
+    #  ('http://purl.org/ccf/latest/ccf.owl#VHMRightLymphNode', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHMSpleen', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHMThymus', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHMLeftKidney', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHFLeftKidney', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHFRightKidney', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHMRightKidney', 'TMC-UCSD')]
 main()
