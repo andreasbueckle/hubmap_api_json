@@ -20,7 +20,7 @@ def main():
 
     # To get TOKEN for viewing unpublished data, go to EUI, log in, then view source, then copy token from browser
     # TOKEN = sys.argv[1] if len(sys.argv) > 1 else None 
-    TOKEN = 'AgDEMjnKrM2XbBW14KPrVeO6K0yVmy37GPz92QWgG7J9qG6P5ecaCgvKpPDjdMw1Em6wrVqONbrYDQFwgQl7ntGM2k'
+    TOKEN = 'AgYq07xYyyl5vX39Q9V1MjpK0JDG4QdreN75EPzynvr0BXlJdqtWCwNmwdPP5bG8J0VlYzNkpDNQvBSVynMaVHE0e8'
     HBM_LINK = 'https://hubmap-link-api.herokuapp.com/hubmap-datasets?format=jsonld'
     if TOKEN:
         HBM_LINK += '&token=' + TOKEN
