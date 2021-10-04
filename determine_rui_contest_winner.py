@@ -1,20 +1,6 @@
 import urllib.request
 import json
-from datetime import datetime
-
-def test_time():
-    date_time_str1 = '18/09/19 01:55:19'
-    date_time_str2 = '25/09/19 01:55:19'
-
-    date_time_obj1 = datetime.strptime(date_time_str1, '%d/%m/%y %H:%M:%S')
-    date_time_obj2 = datetime.strptime(date_time_str2, '%d/%m/%y %H:%M:%S')
-
-    print(date_time_obj1 < date_time_obj2)
-
-    print("The type of the date is now",  type(date_time_obj1))
-    print("The date is", date_time_obj1)
-
-# test_time()
+from dateutil import parser
 
 def main():
 
@@ -28,18 +14,35 @@ def main():
     # first, let's get the most recent data
     with urllib.request.urlopen(HBM_LINK) as url:
         data = json.loads(url.read().decode())
-        # print(data)
-        counter = 0
+        dates = []
+        creators = []
         for item in data['@graph']:
             for sample in item['samples']:
-                counter = counter + 1
-                date_time_str = sample['rui_location']['creation_date']
-                if len(date_time_str) > 12:
-                    print(date_time_str)
-                    # Need to parse string as datetime object to detemine if in contest range
-                    # print(datetime.strptime(date_time_str, '%m/%d/%y %I:%M:%S %p'))
-                
-        print(counter)
+          
+                # Parse string as datetime object to detemine if in contest range
+                as_date_time = parser.parse(sample['rui_location']['creation_date'])      
+                if as_date_time > parser.parse('2021-08-30 00:00:00'):
+                    creator = sample['label'].split(',')[2].strip()
+                # print(type(creator))
+                    dates.append(as_date_time)
+                    creators.append(creator)
+        
+        #count submission per team with dictionary
+        counts = {}
+        for item in creators:
+            if item not in counts:
+                counts[item] = 1
+            else:
+                counts[item] += 1
+        print(counts)
+        # OUTPUT: {'TMC-UCSD': 36, 'General Electric RTI': 11, 'TMC-Florida': 158}
 
+        #finally, let's count all the submissions in the contest
+        total_submissions = 0
+        for item in counts:
+            print(counts[item])
+            total_submissions += counts[item]
+        print("Total #submissions: " + str(total_submissions))
 
+       
 main()
