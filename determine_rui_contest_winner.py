@@ -7,7 +7,7 @@ def main():
 
     # To get TOKEN for viewing unpublished data, go to EUI, log in, then view source, then copy token from browser
     # TOKEN = sys.argv[1] if len(sys.argv) > 1 else None 
-    TOKEN = 'AgYq07xYyyl5vX39Q9V1MjpK0JDG4QdreN75EPzynvr0BXlJdqtWCwNmwdPP5bG8J0VlYzNkpDNQvBSVynMaVHE0e8'
+    TOKEN = 'INSERT_TOKEN_HERE'
     HBM_LINK = 'https://hubmap-link-api.herokuapp.com/hubmap-datasets?format=jsonld'
     if TOKEN:
         HBM_LINK += '&token=' + TOKEN
@@ -24,11 +24,10 @@ def main():
                 as_date_time = parser.parse(sample['rui_location']['creation_date'])      
                 if as_date_time > parser.parse('2021-08-30 00:00:00'):
                     creator = sample['label'].split(',')[2].strip()
-                # print(type(creator))
                     dates.append(as_date_time)
                     creators.append(creator)
         
-        #count submission per team with dictionary
+        #count submission per team
         counts = {}
         for item in creators:
             if item not in counts:
@@ -44,7 +43,7 @@ def main():
             total_submissions += counts[item]
         print("Total #submissions: " + str(total_submissions)) #208
 
-        #finally, let find out on which dates blocks were submitted
+        #finally, let's find out on which dates blocks were submitted
         date_counts = {}
         for item in dates:
             as_string = str(item)[0:10]
