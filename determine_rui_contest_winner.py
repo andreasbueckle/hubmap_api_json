@@ -9,7 +9,7 @@ def main():
 
     # To get TOKEN for viewing unpublished data, go to EUI, log in, then view source, then copy token from browser
     # TOKEN = sys.argv[1] if len(sys.argv) > 1 else None 
-    TOKEN = 'INSERT_TOKEN_HERE'
+    TOKEN = 'AgY3N6nkeMlVEQXbWNYOVpV0Wp8WOPlg0rokjroBg8MEYEenWQfWCvnBDVeMxjwzrGnjDVNXwPeJ71TVyvNq6uE0e8'
     HBM_LINK = 'https://hubmap-link-api.herokuapp.com/hubmap-datasets?format=jsonld'
     if TOKEN:
         HBM_LINK += '&token=' + TOKEN
@@ -20,17 +20,29 @@ def main():
         dates = []
         creators = []
         organs = []
+        people = []
+
         for item in data['@graph']:
             for sample in item['samples']:
           
                 # Parse string as datetime object to detemine if in contest range
                 as_date_time = parser.parse(sample['rui_location']['creation_date'])      
-                if as_date_time > parser.parse('2021-08-30 00:00:00'):
+                if as_date_time > parser.parse('2021-08-30 00:00:00') and as_date_time < parser.parse('2021-10-04 00:00:00'):
                     creator = sample['label'].split(',')[2].strip()
                     dates.append(as_date_time)
                     creators.append(creator)
                     organs.append(sample['rui_location']['placement']['target'])
-        
+                    people.append(sample['rui_location']['creator'].strip())
+        # print(people)
+
+
+
+        winners = []
+        for p in people:
+            if p.lower() not in winners:
+                winners.append(p.lower())
+        print(winners)
+
         #count submission per team
         counts = {}
         for item in creators:
@@ -45,7 +57,7 @@ def main():
         total_submissions = 0
         for item in counts:
             total_submissions += counts[item]
-        print("Total #submissions: " + str(total_submissions)) #208
+        # print("Total #submissions: " + str(total_submissions)) #208
 
         #Find out on which dates blocks were submitted
         date_counts = {}
@@ -55,7 +67,7 @@ def main():
                 date_counts[as_string] = 1
             else:
                date_counts[as_string] += 1
-        print(date_counts)
+        # print(date_counts)
         # OUTPOT :{'2021-09-27': 7, '2021-09-28': 8, '2021-09-23': 7, '2021-09-10': 25, '2021-10-02': 110, '2021-10-01': 36, '2021-10-03': 15}
     
     # find out submissions by organ
@@ -65,7 +77,7 @@ def main():
                     organ_counts[item] = 1
                 else:
                     organ_counts[item] += 1
-    # print(organ_counts)
+    print(organ_counts)
         # {'http://purl.org/ccf/latest/ccf.owl#VHMLung': 14, 'http://purl.org/ccf/latest/ccf.owl#VHFLung': 8, 'http://purl.org/ccf/latest/ccf.owl#VHMSkin': 7, 'http://purl.org/ccf/latest/ccf.owl#VHFSkin': 5, 'http://purl.org/ccf/latest/ccf.owl#VHFThymus': 11, 'http://purl.org/ccf/latest/ccf.owl#VHFSpleen': 8, 'http://purl.org/ccf/latest/ccf.owl#VHFRightLymphNode': 13,
     #     'http://purl.org/ccf/latest/ccf.owl#VHMRightLymphNode': 49, 'http://purl.org/ccf/latest/ccf.owl#VHMSpleen': 40, 'http://purl.org/ccf/latest/ccf.owl#VHMThymus': 38, 'http://purl.org/ccf/latest/ccf.owl#VHMLeftKidney': 4, 'http://purl.org/ccf/latest/ccf.owl#VHFLeftKidney': 5, 'http://purl.org/ccf/latest/ccf.owl#VHFRightKidney': 4, 'http://purl.org/ccf/latest/ccf.owl#VHMRightKidney': 2}
 
@@ -79,7 +91,7 @@ def main():
     for combo in organ_by_creator:
         if combo not in unique:
             unique.append(combo)
-    print(unique)
+    # print(unique)
     # [('http://purl.org/ccf/latest/ccf.owl#VHMLung', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHFLung', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHMSkin', 'General Electric RTI'), ('http://purl.org/ccf/latest/ccf.owl#VHFSkin', 'General Electric RTI'), ('http://purl.org/ccf/latest/ccf.owl#VHFThymus', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHFSpleen', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHFRightLymphNode', 'TMC-Florida'),
     #  ('http://purl.org/ccf/latest/ccf.owl#VHMRightLymphNode', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHMSpleen', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHMThymus', 'TMC-Florida'), ('http://purl.org/ccf/latest/ccf.owl#VHMLeftKidney', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHFLeftKidney', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHFRightKidney', 'TMC-UCSD'), ('http://purl.org/ccf/latest/ccf.owl#VHMRightKidney', 'TMC-UCSD')]
 main()
