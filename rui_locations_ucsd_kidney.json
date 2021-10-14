@@ -1,0 +1,213 @@
+{
+  "https://entity.api.hubmapconsortium.org/entities/b6293bba61e3956b6546f4e6f47c8c3c": {
+    "bmi": "",
+    "sex": "",
+    "age": "",
+    "label": "",
+    "x_pos": 16.625,
+    "y_pos": 109.724,
+    "z_pos": 25.782,
+    "x_dim": 2,
+    "y_dim": 4,
+    "z_dim": 2,
+    "mass_point": [
+      16.625,
+      109.724,
+      25.782
+    ],
+    "ccf_annotations": [
+      "http://purl.obolibrary.org/obo/UBERON_0013702",
+      "http://purl.obolibrary.org/obo/UBERON_0002113",
+      "http://purl.obolibrary.org/obo/UBERON_0004538",
+      "http://purl.obolibrary.org/obo/UBERON_0002015",
+      "http://purl.obolibrary.org/obo/UBERON_0001225",
+      "http://purl.obolibrary.org/obo/UBERON_0002189"
+    ]
+  },
+  "https://entity.api.hubmapconsortium.org/entities/e92386147334ee241991e25d8ae3e04f": {
+    "bmi": "",
+    "sex": "",
+    "age": "",
+    "label": "",
+    "x_pos": 26.649,
+    "y_pos": 84.75,
+    "z_pos": 30.282,
+    "x_dim": 2,
+    "y_dim": 4,
+    "z_dim": 2,
+    "mass_point": [
+      26.649,
+      84.75,
+      30.282
+    ],
+    "ccf_annotations": [
+      "http://purl.obolibrary.org/obo/UBERON_0013702",
+      "http://purl.obolibrary.org/obo/UBERON_0002113",
+      "http://purl.obolibrary.org/obo/UBERON_0004538",
+      "http://purl.obolibrary.org/obo/UBERON_0002015",
+      "http://purl.obolibrary.org/obo/UBERON_0001225",
+      "http://purl.obolibrary.org/obo/UBERON_0002189",
+      "http://purl.obolibrary.org/obo/UBERON_0000362",
+      "http://purl.obolibrary.org/obo/UBERON_0001228",
+      "http://purl.obolibrary.org/obo/UBERON_0004200",
+      "http://purl.obolibrary.org/obo/UBERON_0001284",
+      "http://purl.obolibrary.org/obo/UBERON_0006517",
+      "http://purl.obolibrary.org/obo/UBERON_0001227"
+    ]
+  },
+  "https://entity.api.hubmapconsortium.org/entities/b2362226c142a855ddaa0fba0db29b95": {
+    "bmi": 19.6,
+    "sex": "Female",
+    "age": 57,
+    "label": "Female, Age 57, BMI 19.6",
+    "x_pos": 53.213,
+    "y_pos": 74.416,
+    "z_pos": 20.489,
+    "x_dim": 5,
+    "y_dim": 12,
+    "z_dim": 2,
+    "mass_point": [
+      53.213,
+      74.416,
+      20.489
+    ],
+    "ccf_annotations": [
+      "http://purl.obolibrary.org/obo/UBERON_0013702",
+      "http://purl.obolibrary.org/obo/UBERON_0002113",
+      "http://purl.obolibrary.org/obo/UBERON_0004539",
+      "http://purl.obolibrary.org/obo/UBERON_0002015",
+      "http://purl.obolibrary.org/obo/UBERON_0001225",
+      "http://purl.obolibrary.org/obo/UBERON_0002189",
+      "http://purl.obolibrary.org/obo/UBERON_0000362",
+      "http://purl.obolibrary.org/obo/UBERON_0001228",
+      "http://purl.obolibrary.org/obo/UBERON_0004200",
+      "http://purl.obolibrary.org/obo/UBERON_0001284",
+      "http://purl.obolibrary.org/obo/UBERON_0006517",
+      "http://purl.obolibrary.org/obo/UBERON_0001227",
+      "http://purl.obolibrary.org/obo/UBERON_0008716"
+    ]
+  },
+  "https://entity.api.hubmapconsortium.org/entities/243c742cc28978c406d650984d6eeffd": {
+    "bmi": "",
+    "sex": "",
+    "age": "",
+    "label": "",
+    "x_pos": 53.316,
+    "y_pos": 45.294,
+    "z_pos": 52.282,
+    "x_dim": 3,
+    "y_dim": 4,
+    "z_dim": 2,
+    "mass_point": [
+      53.316,
+      45.294,
+      52.282
+    ],
+    "ccf_annotations": [
+      "http://purl.obolibrary.org/obo/UBERON_0013702",
+      "http://purl.obolibrary.org/obo/UBERON_0002113",
+      "http://purl.obolibrary.org/obo/UBERON_0004538",
+      "http://purl.obolibrary.org/obo/UBERON_0002015",
+      "http://purl.obolibrary.org/obo/UBERON_0001225",
+      "http://purl.obolibrary.org/obo/UBERON_0002189",
+      "http://purl.obolibrary.org/obo/UBERON_0008716",
+      "http://purl.obolibrary.org/obo/UBERON_0000362",
+      "http://purl.obolibrary.org/obo/UBERON_0001228",
+      "http://purl.obolibrary.org/obo/UBERON_0004200",
+      "http://purl.obolibrary.org/obo/UBERON_0001284",
+      "http://purl.obolibrary.org/obo/UBERON_0006517",
+      "http://purl.obolibrary.org/obo/UBERON_0001226",
+      "http://purl.obolibrary.org/obo/UBERON_0001227"
+    ]
+  },
+  "https://entity.api.hubmapconsortium.org/entities/aadeb3ec91f8886051108dbb45ddec76": {
+    "bmi": "",
+    "sex": "",
+    "age": "",
+    "label": "",
+    "x_pos": 5.966,
+    "y_pos": 20.114,
+    "z_pos": 36.989,
+    "x_dim": 2,
+    "y_dim": 3,
+    "z_dim": 2,
+    "mass_point": [
+      5.966,
+      20.114,
+      36.989
+    ],
+    "ccf_annotations": [
+      "http://purl.obolibrary.org/obo/UBERON_0013702",
+      "http://purl.obolibrary.org/obo/UBERON_0002113",
+      "http://purl.obolibrary.org/obo/UBERON_0004538",
+      "http://purl.obolibrary.org/obo/UBERON_0002015",
+      "http://purl.obolibrary.org/obo/UBERON_0001225",
+      "http://purl.obolibrary.org/obo/UBERON_0002189",
+      "http://purl.obolibrary.org/obo/UBERON_0008716",
+      "http://purl.obolibrary.org/obo/UBERON_0000362",
+      "http://purl.obolibrary.org/obo/UBERON_0001228",
+      "http://purl.obolibrary.org/obo/UBERON_0004200",
+      "http://purl.obolibrary.org/obo/UBERON_0001284",
+      "http://purl.obolibrary.org/obo/UBERON_0006517",
+      "http://purl.obolibrary.org/obo/UBERON_0001226",
+      "http://purl.obolibrary.org/obo/UBERON_0001227"
+    ]
+  },
+  "https://entity.api.hubmapconsortium.org/entities/2957761e1ed24c63f53714bd0d9bf25f": {
+    "bmi": "",
+    "sex": "",
+    "age": "",
+    "label": "",
+    "x_pos": 71.787,
+    "y_pos": 69.909,
+    "z_pos": 47.555,
+    "x_dim": 1,
+    "y_dim": 1,
+    "z_dim": 2,
+    "mass_point": [
+      71.787,
+      69.909,
+      47.555
+    ],
+    "ccf_annotations": [
+      "http://purl.obolibrary.org/obo/UBERON_0013702",
+      "http://purl.obolibrary.org/obo/UBERON_0002113",
+      "http://purl.obolibrary.org/obo/UBERON_0004538",
+      "http://purl.obolibrary.org/obo/UBERON_0002015",
+      "http://purl.obolibrary.org/obo/UBERON_0001225",
+      "http://purl.obolibrary.org/obo/UBERON_0002189"
+    ]
+  },
+  "https://entity.api.hubmapconsortium.org/entities/539d08c341db65d371ae0687bb314bb3": {
+    "bmi": 29.1,
+    "sex": "Male",
+    "age": 66,
+    "label": "Male, Age 66, BMI 29.1",
+    "x_pos": 44.617,
+    "y_pos": 63.486,
+    "z_pos": 52.555,
+    "x_dim": 5,
+    "y_dim": 10,
+    "z_dim": 2,
+    "mass_point": [
+      44.617,
+      63.486,
+      52.555
+    ],
+    "ccf_annotations": [
+      "http://purl.obolibrary.org/obo/UBERON_0013702",
+      "http://purl.obolibrary.org/obo/UBERON_0002113",
+      "http://purl.obolibrary.org/obo/UBERON_0004538",
+      "http://purl.obolibrary.org/obo/UBERON_0002015",
+      "http://purl.obolibrary.org/obo/UBERON_0001225",
+      "http://purl.obolibrary.org/obo/UBERON_0002189",
+      "http://purl.obolibrary.org/obo/UBERON_0000362",
+      "http://purl.obolibrary.org/obo/UBERON_0001228",
+      "http://purl.obolibrary.org/obo/UBERON_0004200",
+      "http://purl.obolibrary.org/obo/UBERON_0001284",
+      "http://purl.obolibrary.org/obo/UBERON_0006517",
+      "http://purl.obolibrary.org/obo/UBERON_0001227",
+      "http://purl.obolibrary.org/obo/UBERON_0008716"
+    ]
+  }
+}
