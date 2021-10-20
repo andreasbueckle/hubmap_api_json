@@ -9,7 +9,7 @@ def main():
 
     # To get TOKEN for viewing unpublished data, go to EUI, log in, then view source, then copy token from browser
     # TOKEN = sys.argv[1] if len(sys.argv) > 1 else None
-    TOKEN = 'AgWyp63nj0V2drM4bjxY36wev242NX40QDQk7WxvoOr67vGwPOFgCY4jmmovr4y32jyr013WgwEV47t4YMODpsKNwo'
+    TOKEN = ''
     HBM_LINK = 'https://hubmap-link-api.herokuapp.com/hubmap-datasets?format=jsonld'
     if TOKEN:
         HBM_LINK += '&token=' + TOKEN
@@ -29,34 +29,36 @@ def main():
                 # Parse string as datetime object to detemine if in contest range
                 as_date_time = parser.parse(
                     sample['rui_location']['creation_date'])
-                if as_date_time > parser.parse('2021-08-30 00:00:00') and as_date_time < parser.parse('2021-10-04 00:00:00'):
-                    component = sample['label'].split(',')[2].strip()
-                    dates.append(as_date_time)
-                    components.append(component)
-                    organs.append(sample['rui_location']
-                                  ['placement']['target'])
-                    people.append(sample['rui_location']['creator'].strip())
+                # if as_date_time > parser.parse('2021-01-01 00:00:00') and as_date_time < parser.parse('2021-10-19 00:00:00'):
+                #     component = sample['label'].split(',')[2].strip()
+                #     dates.append(as_date_time)
+                #     components.append(component)
+                #     organs.append(sample['rui_location']
+                #                   ['placement']['target'])
+                #     people.append(sample['rui_location']['creator'].strip())
 
                     # add Amanda's samples to list
-                    if sample['rui_location']['creator'].strip() == 'amanda knoten' or sample['rui_location']['creator'].strip() == 'amanda  knoten':
-                        # if sample['rui_location']['creator'].strip() == 'gloria pryhuber':
-                        if 'label' in item:
-                            sample['label'] = item['label']
-                        samples_ucsd.append(sample)
+                    # if sample['rui_location']['creator'].strip() == 'amanda knoten' or sample['rui_location']['creator'].strip() == 'amanda  knoten':
+                if "Amanda" in sample['rui_location']['creator_first_name'] or "amanda" in sample['rui_location']['creator_first_name']:
+                    # if sample['rui_location']['creator'].strip() == 'gloria pryhuber':
+                    if 'label' in item:
+                        sample['label'] = item['label']
+                    # print(sample['rui_location']['creator'])
+                    samples_ucsd.append(sample)
 
-                    # capture clinical metadata from item (donor)
-                        if 'bmi' in item:
-                            donor_metadata.append(item['bmi'])
-                        else:
-                            donor_metadata.append("")
-                        if 'sex' in item:
-                            donor_metadata.append(item['sex'])
-                        else:
-                            donor_metadata.append("")
-                        if 'age' in item:
-                            donor_metadata.append(item['age'])
-                        else:
-                            donor_metadata.append("")
+                # capture clinical metadata from item (donor)
+                    if 'bmi' in item:
+                        donor_metadata.append(item['bmi'])
+                    else:
+                        donor_metadata.append("")
+                    if 'sex' in item:
+                        donor_metadata.append(item['sex'])
+                    else:
+                        donor_metadata.append("")
+                    if 'age' in item:
+                        donor_metadata.append(item['age'])
+                    else:
+                        donor_metadata.append("")
 
         # get XYZ pos and dimensions for Amanda's registrations + clinical metadata
         rui_locations_ucsd_kidney = {}
