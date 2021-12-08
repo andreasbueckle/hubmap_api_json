@@ -1,6 +1,7 @@
 import json
 import urllib.request
 
+
 def main():
     # To get TOKEN for viewing unpublished data, go to EUI, log in, then view source, then copy token from browser
     # TOKEN = sys.argv[1] if len(sys.argv) > 1 else None
@@ -22,10 +23,15 @@ def main():
                 x.append(sample['rui_location']['x_dimension'])
                 y.append(sample['rui_location']['y_dimension'])
                 z.append(sample['rui_location']['z_dimension'])
-    
+
     print(compute_average(x))
     print(compute_average(y))
     print(compute_average(z))
+
+# 15.602722772277227
+# 13.616336633663366
+# 9.009158415959613
+
 
 def compute_average(list):
     """takes a list of numbers and returns the average
@@ -36,5 +42,6 @@ def compute_average(list):
     for item in list:
         total = total + item
     return total/len(list)
+
 
 main()
