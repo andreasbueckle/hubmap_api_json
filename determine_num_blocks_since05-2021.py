@@ -1,10 +1,6 @@
-from datetime import date
-from typing import Counter
 import urllib.request
 import json
 from dateutil import parser
-import sys
-
 
 def main():
 
